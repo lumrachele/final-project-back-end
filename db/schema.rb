@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_161440) do
   create_table "game_captions", force: :cascade do |t|
     t.integer "caption_id"
     t.integer "game_id"
-    t.integer "points"
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_161440) do
   create_table "user_games", force: :cascade do |t|
     t.integer "user_id"
     t.integer "game_id"
+    t.string "imageUrl", default: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

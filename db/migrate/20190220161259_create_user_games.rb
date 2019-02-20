@@ -3,6 +3,7 @@ class CreateUserGames < ActiveRecord::Migration[5.2]
     create_table :user_games do |t|
       t.integer :user_id
       t.integer :game_id
+      t.string :imageUrl, :default=> "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png"
 
       t.timestamps
     end
