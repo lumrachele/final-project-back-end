@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dogzl0s2s
+  api_key: '855134829242923'
+  api_secret: Ffbkg11JcBbevpK4SOPvwDr19Ww
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dogzl0s2s
+  api_key: '855134829242923'
+  api_secret: Ffbkg11JcBbevpK4SOPvwDr19Ww
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dogzl0s2s
+  api_key: '855134829242923'
+  api_secret: Ffbkg11JcBbevpK4SOPvwDr19Ww
+  enhance_image_tag: true
+  static_file_support: false
