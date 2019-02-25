@@ -6,8 +6,6 @@ class Api::V1::GameCaptionsController < ApplicationController
 
   def new
     @gameCaption = GameCaption.new
-    render json: @gameCaption, status: :ok
-
   end
 
   def create
@@ -18,6 +16,18 @@ class Api::V1::GameCaptionsController < ApplicationController
   def show
     @gameCaption = GameCaption.find(params[:id])
     render json: @gameCaption
+  end
+
+
+  def edit
+    @gameCaption = GameCaption.find(params[:id])
+    render json: @gameCaption
+  end
+
+  def update
+    @gameCaption = GameCaption.find(params[:id])
+    @gameCaption.update(game_caption_params)
+    render json: @gameCaption, status: :ok
   end
 
   private

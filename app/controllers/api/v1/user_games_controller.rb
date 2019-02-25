@@ -35,14 +35,10 @@ class Api::V1::UserGamesController < ApplicationController
 
   def update
     @userGame = UserGame.find(params[:id])
-    # @userGame.update(user_game_params)
-    # byebug
     getURL = uploadToCloudinary(user_game_params[:imageUrl])
     @userGame.update_attribute(:imageUrl, getURL)
-    # byebug
     render json: @userGame, status: :ok
   end
-
 
 
   def destroy

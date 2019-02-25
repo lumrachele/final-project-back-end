@@ -6,12 +6,12 @@ class Api::V1::CaptionsController < ApplicationController
 
   def new
     @caption = Caption.new
-    render json: @caption, status: :ok
 
   end
 
   def create
     @caption = Caption.create(caption_params)
+    render json: @caption, status: :ok
   end
 
   def show
