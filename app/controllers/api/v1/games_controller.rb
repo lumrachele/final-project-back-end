@@ -1,31 +1,31 @@
 class Api::V1::GamesController < ApplicationController
-  def index
-    @games = Game.all
-    render json: @games
-  end
+  # def index
+  #   @games = Game.all
+  #   render json: @games
+  # end
 
   def new
     @game = Game.new
-    render json: @game, status: :ok
 
   end
 
   def create
-    @game = Game.create(game_params)
+    @game = Game.create()
     render json: @game, status: :ok
   end
 
   def show
     @game = Game.find(params[:id])
-    render json: @game
+    render json: @game, status: :ok
   end
 
   private
 
   def game_params
-    params.require(:game).permit(:id, :prompt)
+    params.require(:game).permit(:id)
   end
 
-
-
+  # def assignPrompt
+  #   Caption.all.sample.text
+  # end
 end

@@ -31,9 +31,9 @@ puts "users seeded"
 # any submitted caption as potential props
 
 #Caption.all.sample?
-Game.create(prompt: "getting tickled")
-
-puts "games seeded"
+# Game.create(prompt: "getting tickled")
+#
+# puts "games seeded"
 # Game.create(prompt: "taking a bite of a food you know you'll hate")
 # Game.create(prompt: "climbing a mountain")
 
@@ -59,9 +59,13 @@ puts "user games seeded"
 #   end
 
 Caption.create(text: "watching a scary movie", user_id: 2)
-Caption.create(text: "meditating in a garden", user_id: 3)
-Caption.create(text: "scuba diving", user_id: 4)
-Caption.create(text: "walking on the moon", user_id: 5)
+Caption.create(text: "falling asleep during a meeting", user_id: 3)
+Caption.create(text: "crossing the finish line", user_id: 4)
+Caption.create(text: "getting a puppy for Christmas", user_id: 5)
+Caption.create(text: "spilling coffee on your shirt", user_id: 1)
+Caption.create(text: "jumping for joy", user_id: 1)
+Caption.create(text: "swimming", user_id: 1)
+Caption.create(text: "at the dentist", user_id: 1)
 
 puts "captions seeded"
 
@@ -72,10 +76,10 @@ puts "captions seeded"
 #     t.datetime "created_at", null: false
 #     t.datetime "updated_at", null: false
 #   end
-GameCaption.create(caption_id: 1, game_id: 1)
-GameCaption.create(caption_id: 2, game_id: 1)
-GameCaption.create(caption_id: 3, game_id: 1)
-GameCaption.create(caption_id: 4, game_id: 1)
-#
-puts "gameCaptions seeded"
-#
+# GameCaption.create(caption_id: 1, game_id: 1)
+# GameCaption.create(caption_id: 2, game_id: 1)
+# GameCaption.create(caption_id: 3, game_id: 1)
+# GameCaption.create(caption_id: 4, game_id: 1)
+# #
+# puts "gameCaptions seeded"
+# #
