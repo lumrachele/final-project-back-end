@@ -10,6 +10,7 @@ class Api::V1::GameCaptionsController < ApplicationController
 
   def create
     @gameCaption = GameCaption.create(game_caption_params)
+    #broadcast the fact that this happened out to all the subscribers
     render json: @gameCaption, status: :ok
   end
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :user_games
       resources :captions
       resources :game_captions
+      mount ActionCable.server =>'/cable'
     end
   end
 end

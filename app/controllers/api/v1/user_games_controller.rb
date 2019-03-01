@@ -20,6 +20,7 @@ class Api::V1::UserGamesController < ApplicationController
 
   def create
     @userGame = UserGame.create(user_game_params)
+    ActionCable.server.broadcast("home_channel", @userGame)
     render json: @userGame, status: :ok
   end
 

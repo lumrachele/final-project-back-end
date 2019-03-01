@@ -1,8 +1,8 @@
 class Api::V1::GamesController < ApplicationController
-  # def index
-  #   @games = Game.all
-  #   render json: @games
-  # end
+  def index
+    @games = Game.all
+    render json: @games
+  end
 
   def new
     @game = Game.new
@@ -16,6 +16,7 @@ class Api::V1::GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    # ActionCable.server.broadcast("home_channel", {hello:"me"})
     render json: @game, status: :ok
   end
 
