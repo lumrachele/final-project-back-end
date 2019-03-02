@@ -14,10 +14,10 @@
 #     t.datetime "updated_at", null: false
 
 User.create(username: "rachel", isHost: true)
-User.create(username: "lol", isHost: false)
-User.create(username: "hi", isHost: false)
-User.create(username: "bob", isHost: false)
-User.create(username: "phoebe", isHost: false)
+User.create(username: "Rachel2", isHost: false)
+# User.create(username: "hi", isHost: false)
+# User.create(username: "bob", isHost: false)
+# User.create(username: "phoebe", isHost: false)
 
 puts "users seeded"
 #   create_table "games", force: :cascade do |t|
@@ -43,13 +43,13 @@ puts "users seeded"
 #     t.datetime "created_at", null: false
 #     t.datetime "updated_at", null: false
 #   end
-UserGame.create(user_id: 1, game_id: 1)
-UserGame.create(user_id: 2, game_id: 1)
-UserGame.create(user_id: 3, game_id: 1)
-UserGame.create(user_id: 4, game_id: 1)
-UserGame.create(user_id: 5, game_id: 1)
+# UserGame.create(user_id: 1, game_id: 1)
+# UserGame.create(user_id: 2, game_id: 1)
+# UserGame.create(user_id: 3, game_id: 1)
+# UserGame.create(user_id: 4, game_id: 1)
+# UserGame.create(user_id: 5, game_id: 1)
 # UserGame.create(user_id: , game_id: )
-puts "user games seeded"
+# puts "user games seeded"
 
 #   create_table "captions", force: :cascade do |t|
 #     t.string "text"

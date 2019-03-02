@@ -16,7 +16,8 @@ class Api::V1::GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    # ActionCable.server.broadcast("home_channel", {hello:"me"})
+    ActionCable.server.broadcast("home_channel", {game: @game})
+    ActionCable.server.broadcast_to(@game, {message: 'hello from games channel', game: @game})
     render json: @game, status: :ok
   end
 
