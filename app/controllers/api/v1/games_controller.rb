@@ -14,6 +14,7 @@ class Api::V1::GamesController < ApplicationController
 
     # @join = UserGame.create(game_id: @game.id, user_id: game_params[:isActive])
     ActionCable.server.broadcast("home_channel", {game: "hello from home channel"})
+    
 
     # GamesChannel.broadcast_to(@game, {message: 'hello from games channel'})
     render json: @game, status: :ok

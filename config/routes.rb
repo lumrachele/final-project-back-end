@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :captions
       resources :game_captions
       mount ActionCable.server =>'/cable'
+      get '/start', to: 'game_status#start'
     end
   end
 end
