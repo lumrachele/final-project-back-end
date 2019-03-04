@@ -15,12 +15,25 @@ class Api::V1::UserGamesController < ApplicationController
   def new
     @userGame = UserGame.new
     render json: @userGame, status: :ok
-
   end
 
   def create
+
     @userGame = UserGame.create(user_game_params)
-    ActionCable.server.broadcast("home_channel", @userGame)
+    ActionCable.server.broadcast("home_channel", {type: 'ADD_PLAYERS', player: @userGame.user})
+
+    #
+    # type: 'PLAYER_JOIN',
+    #         payload: GameSerializer.new(game_player.game).small_serialize
+    #       })
+    #       GamesChannel.broadcast_to(game_player.game, {
+    #         type: 'NEW_PLAYER',
+    #         payload: GamePlayersSerializer.new(game_player).serialize
+    #       })
+
+    game = GameSerializer.new(@userGame.game)
+
+    GamesChannel.broadcast_to(game, {message: "hi from game channel"})
     render json: @userGame, status: :ok
   end
 
@@ -45,7 +58,6 @@ class Api::V1::UserGamesController < ApplicationController
   def destroy
     @userGame = UserGame.find(params[:id])
     @userGame.destroy
-
   end
 
   private

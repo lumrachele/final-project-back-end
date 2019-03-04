@@ -13,8 +13,8 @@
 #     t.datetime "created_at", null: false
 #     t.datetime "updated_at", null: false
 
-User.create(username: "rachel", isHost: true)
-User.create(username: "Rachel2", isHost: false)
+User.create(username: "rachel")
+User.create(username: "rachel2")
 # User.create(username: "hi", isHost: false)
 # User.create(username: "bob", isHost: false)
 # User.create(username: "phoebe", isHost: false)

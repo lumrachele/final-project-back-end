@@ -11,20 +11,23 @@ class Api::V1::GamesController < ApplicationController
 
   def create
     @game = Game.create()
+
+    # @join = UserGame.create(game_id: @game.id, user_id: game_params[:isActive])
+    ActionCable.server.broadcast("home_channel", {game: "hello from home channel"})
+
+    # GamesChannel.broadcast_to(@game, {message: 'hello from games channel'})
     render json: @game, status: :ok
   end
 
   def show
     @game = Game.find(params[:id])
-    ActionCable.server.broadcast("home_channel", {game: @game})
-    ActionCable.server.broadcast_to(@game, {message: 'hello from games channel', game: @game})
     render json: @game, status: :ok
   end
 
   private
 
   def game_params
-    params.require(:game).permit(:id)
+    params.require(:game).permit(:id, :isActive)
   end
 
   # def assignPrompt
