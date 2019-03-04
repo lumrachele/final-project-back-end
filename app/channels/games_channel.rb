@@ -7,5 +7,7 @@ class GamesChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    game = Game.find_by(id: params[:game_id])
+    game.unsubscribe()
   end
 end

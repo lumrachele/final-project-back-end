@@ -55,10 +55,10 @@ class Api::V1::UserGamesController < ApplicationController
   end
 
 
-  def destroy
-    @userGame = UserGame.find(params[:id])
-    @userGame.destroy
-  end
+  # def destroy
+  #   @userGame = UserGame.find(params[:id])
+  #   @userGame.destroy
+  # end
 
   private
 
