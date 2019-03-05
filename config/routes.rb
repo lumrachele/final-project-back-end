@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       mount ActionCable.server =>'/cable'
       get '/start', to: 'game_status#start'
       get '/submissions', to: 'game_status#submissions'
+      get '/voting', to: 'game_status#voting'
+      get '/results', to: 'game_status#results'
     end
   end
 end

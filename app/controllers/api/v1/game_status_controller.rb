@@ -8,4 +8,12 @@ class Api::V1::GameStatusController < ApplicationController
     ActionCable.server.broadcast("home_channel", {type: 'GO_TO_SUBMISSIONS'})
   end
 
+  def voting
+    ActionCable.server.broadcast("home_channel", {type: 'GO_TO_VOTING'})
+  end
+
+  def results
+    ActionCable.server.broadcast("home_channel", {type: 'GO_TO_RESULTS'})
+  end
+
 end

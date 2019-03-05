@@ -9,9 +9,14 @@ class Api::V1::GameCaptionsController < ApplicationController
   end
 
   def create
-    @gameCaption = GameCaption.create(game_caption_params)
-    #broadcast the fact that this happened out to all the subscribers
-    render json: @gameCaption, status: :ok
+    @gameCaption = GameCaption.new(game_caption_params)
+
+    if @gameCaption.save
+      ActionCable.server.broadcast("home_channel", {type: 'ADDED_CAPTION', gameCaption: @gameCaption})
+      render json: @gameCaption, status: :ok
+    else
+      render json: {errors: game_caption.errors}, status: 422
+    end
   end
 
   def show
