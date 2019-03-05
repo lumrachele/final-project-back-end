@@ -51,6 +51,7 @@ class Api::V1::UserGamesController < ApplicationController
     @userGame = UserGame.find(params[:id])
     getURL = uploadToCloudinary(user_game_params[:imageUrl])
     @userGame.update_attribute(:imageUrl, getURL)
+    ActionCable.server.broadcast("home_channel", {type: 'GET_PHOTO', photo: @userGame[:imageUrl]})
     render json: @userGame, status: :ok
   end
 
