@@ -1,8 +1,8 @@
 class Api::V1::GamesController < ApplicationController
-  # def index
-  #   @games = Game.all
-  #   render json: @games
-  # end
+  def index
+    @games = Game.all
+    render json: @games
+  end
 
   def new
     @game = Game.new
@@ -11,18 +11,31 @@ class Api::V1::GamesController < ApplicationController
 
   def create
     @game = Game.create()
-    render json: @game, status: :ok
+
+    # @join = UserGame.create(game_id: @game.id, user_id: game_params[:isActive])
+
+    # ActionCable.server.broadcast("home_channel", {type: 'RERENDER GAME', game: GameSerializer.new(@game)})
+
+    render json: GameSerializer.new(@game), status: :ok
   end
 
   def show
     @game = Game.find(params[:id])
-    render json: @game, status: :ok
+    ActionCable.server.broadcast("home_channel", {type: 'RERENDER_GAME', game: GameSerializer.new(@game)})
+    GamesChannel.broadcast_to(@game, {message: 'hello from games channel'})
+    render json: GameSerializer.new(@game), status: :ok
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.update(game_params)
+    render json: GameSerializer.new(@game), status: :ok
   end
 
   private
 
   def game_params
-    params.require(:game).permit(:id)
+    params.require(:game).permit(:id, :isActive)
   end
 
   # def assignPrompt

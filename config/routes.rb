@@ -7,6 +7,13 @@ Rails.application.routes.draw do
       resources :user_games
       resources :captions
       resources :game_captions
+      mount ActionCable.server =>'/cable'
+      get '/start', to: 'game_status#start'
+      get '/submissions', to: 'game_status#submissions'
+      get '/voting', to: 'game_status#voting'
+      get '/results', to: 'game_status#results'
+      get '/results/:id', to: 'game_status#resultsWithId'
+      get '/anotherGame', to: 'game_status#anotherGame'
     end
   end
 end

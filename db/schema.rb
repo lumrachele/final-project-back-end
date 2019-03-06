@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_161440) do
   end
 
   create_table "games", force: :cascade do |t|
+    t.boolean "isActive", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_161440) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.boolean "isHost"
+    t.boolean "isHost", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
