@@ -12,8 +12,8 @@ class Api::V1::GameCaptionsController < ApplicationController
     @gameCaption = GameCaption.new(game_caption_params)
 
     if @gameCaption.save
-      ActionCable.server.broadcast("home_channel", {type: 'ADDED_CAPTION', gameCaption: @gameCaption})
-      render json: @gameCaption, status: :ok
+      ActionCable.server.broadcast("home_channel", {type: 'ADDED_CAPTION', gameCaption: GameCaptionSerializer.new(@gameCaption)})
+      render json: GameCaptionSerializer.new(@gameCaption), status: :ok
     else
       render json: {errors: game_caption.errors}, status: 422
     end
@@ -33,7 +33,8 @@ class Api::V1::GameCaptionsController < ApplicationController
   def update
     @gameCaption = GameCaption.find(params[:id])
     @gameCaption.update(game_caption_params)
-    render json: @gameCaption, status: :ok
+    ActionCable.server.broadcast("home_channel", {type: 'ADD_POINTS', gameCaption: GameCaptionSerializer.new(@gameCaption)})
+    render json: GameCaptionSerializer.new(@gameCaption), status: :ok
   end
 
   private

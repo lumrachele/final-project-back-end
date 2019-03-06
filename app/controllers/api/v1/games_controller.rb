@@ -13,15 +13,17 @@ class Api::V1::GamesController < ApplicationController
     @game = Game.create()
 
     # @join = UserGame.create(game_id: @game.id, user_id: game_params[:isActive])
-    ActionCable.server.broadcast("home_channel", {game: @game, gameCaptions: @game.game_captions})
+
+    # ActionCable.server.broadcast("home_channel", {type: 'RERENDER GAME', game: GameSerializer.new(@game)})
 
     # GamesChannel.broadcast_to(@game, {message: 'hello from games channel'})
-    render json: @game, status: :ok
+    render json: GameSerializer.new(@game), status: :ok
   end
 
   def show
     @game = Game.find(params[:id])
-    render json: @game, status: :ok
+    ActionCable.server.broadcast("home_channel", {type: 'RERENDER GAME', game: GameSerializer.new(@game)})
+    render json: GameSerializer.new(@game), status: :ok
   end
 
   private
