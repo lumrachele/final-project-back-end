@@ -18,7 +18,7 @@ class Api::V1::GameStatusController < ApplicationController
 
   def resultsWithId
     @game = Game.find(params[:id])
-    # byebug
+
     ActionCable.server.broadcast("home_channel", {type: 'RESULTS_WITH_ID', game: GameSerializer.new(@game)})
     # render json: GameSerializer.new(@game), status: :ok
   end

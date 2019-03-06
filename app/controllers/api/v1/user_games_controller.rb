@@ -12,10 +12,10 @@ class Api::V1::UserGamesController < ApplicationController
     render json: @userGames
   end
 
-  def new
-    @userGame = UserGame.new
-    render json: @userGame, status: :ok
-  end
+  # def new
+  #   @userGame = UserGame.new
+  #   render json: @userGame, status: :ok
+  # end
 
   def create
 
@@ -42,10 +42,10 @@ class Api::V1::UserGamesController < ApplicationController
     render json: @userGame
   end
 
-  def edit
-    @userGame = UserGame.find(params[:id])
-    render json: @userGame
-  end
+  # def edit
+  #   @userGame = UserGame.find(params[:id])
+  #   render json: @userGame
+  # end
 
   def update
     @userGame = UserGame.find(params[:id])
@@ -55,11 +55,6 @@ class Api::V1::UserGamesController < ApplicationController
     render json: @userGame, status: :ok
   end
 
-
-  # def destroy
-  #   @userGame = UserGame.find(params[:id])
-  #   @userGame.destroy
-  # end
 
   private
 
