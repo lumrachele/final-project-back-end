@@ -24,6 +24,9 @@ class Api::V1::GameStatusController < ApplicationController
   end
 
   def anotherGame
+    # user = User.find_by(id: params[:user_id])
+    # byebug
+    # user.update_attribute(:isHost, false)
     ActionCable.server.broadcast("home_channel", {type: 'ANOTHER_GAME'})
   end
 
