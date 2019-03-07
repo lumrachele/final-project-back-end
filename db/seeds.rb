@@ -58,14 +58,26 @@ puts "users seeded"
 #     t.datetime "updated_at", null: false
 #   end
 
-Caption.create(text: "watching a scary movie", user_id: 2)
-Caption.create(text: "falling asleep during a meeting", user_id: 3)
-Caption.create(text: "crossing the finish line", user_id: 4)
-Caption.create(text: "getting a puppy for Christmas", user_id: 5)
+Caption.create(text: "watching a scary movie", user_id: 1)
+Caption.create(text: "falling asleep", user_id: 1)
+Caption.create(text: "crossing the finish line", user_id: 1)
+Caption.create(text: "outraged", user_id: 1)
 Caption.create(text: "spilling coffee on your shirt", user_id: 1)
-Caption.create(text: "jumping for joy", user_id: 1)
-Caption.create(text: "swimming", user_id: 1)
+Caption.create(text: "payday", user_id: 1)
+Caption.create(text: "skydiving", user_id: 1)
 Caption.create(text: "at the dentist", user_id: 1)
+Caption.create(text: "just smiling", user_id: 1)
+Caption.create(text: "when your code finally works as expected", user_id: 1)
+Caption.create(text: "developers", user_id: 1)
+Caption.create(text: "yeehaw", user_id: 1)
+Caption.create(text: "tree pose", user_id: 1)
+Caption.create(text: "a tourist", user_id: 1)
+Caption.create(text: "grocery shopping", user_id: 1)
+Caption.create(text: "disco", user_id: 1)
+Caption.create(text: "eating icecream", user_id: 1)
+Caption.create(text: "yawning", user_id: 1)
+Caption.create(text: "empty inside", user_id: 1)
+Caption.create(text: "worst day of your life", user_id: 1)
 
 puts "captions seeded"
 
