@@ -1,7 +1,8 @@
-# README
-This Rails application is the backend for Weegle. It provides access to the necessary API endpoints and communicates with the PostgreSQL Database. <a href=https://vimeo.com/329654271>Demo Video</a>
+## Weegle: The Backend
 
-Front End Repo: <a href=https://github.com/lumrachele/final-project-front-end>Front End Repository</a>
+This Rails application is the backend for Weegle. It provides access to the necessary API endpoints and communicates with the PostgreSQL Database. It also demonstrates use of a channel to establish an action cable connection via websockets between players of the same game. <a href=https://vimeo.com/329654271>Demo Video</a>
+
+Frontend: [Weegle Frontend Repository](https://github.com/lumrachele/final-project-front-end)
 
 <h2>Contents</h2>
 
@@ -21,7 +22,7 @@ This app uses Ruby version 2.5.3. This Rails application was created using ```ra
 
 # <h2>Installation</h2>
 
-To get started with this app, simply fork and clone this repository. Remember to ```bundle install``` and run ```rails db:create && rails db:migrate && rails db:seed``` to create and initialize the database. Double check that you have PostgreSQL running on your computer. To run, enter the command ```rails s``` in your terminal and navigate to ```http://localhost:3000``` or whatever port number you would like to indicate, as long as it differs from the port of the frontend.
+To get started with this app, simply fork and clone this repository, as well as the [frontend repository](https://github.com/lumrachele/final-project-front-end). Remember to ```bundle install``` and run ```rails db:create && rails db:migrate && rails db:seed``` to create and initialize the database. Double check that you have PostgreSQL running on your computer. To run, enter the command ```rails s``` in your terminal and navigate to ```http://localhost:3000``` or whatever port number you would like to indicate, as long as it differs from the port of the frontend.
 
 # <h2>Models</h2>
 
@@ -59,5 +60,6 @@ Key Controller Methods: create, update.
 
 - customize serializers such that they provide only the necessary information
 - create custom controller methods to do more work on the backend rather than the frontend (example: create GameCaption in the CaptionController, etc...)
+- create unique channel for each game
 
 At this moment, this application does not allow for open source contributions.
