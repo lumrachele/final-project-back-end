@@ -1,9 +1,9 @@
 # README
-This Rails application is the backend for Weegle. It provides access to the necessary API endpoints and communicates with the PostgreSQL Database.
+This Rails application is the backend for Weegle. It provides access to the necessary API endpoints and communicates with the PostgreSQL Database. <a href=https://vimeo.com/329654271>Demo Video</a>
 
-<a href=https://vimeo.com/329654271>Demo Video</a>
+Front End Repo: <a href=https://github.com/lumrachele/final-project-front-end>Front End Repository</a>
 
-<a href=https://github.com/lumrachele/final-project-front-end>Front End Repository</a>
+<h2>Contents</h2>
 
 * [Essential Gems](#essential-gems)
 
@@ -12,6 +12,8 @@ This Rails application is the backend for Weegle. It provides access to the nece
 * [Models](#models)
 
 * [Future Development](#future-development)
+
+
 
 # <h2>Essential Gems</h2>
 
