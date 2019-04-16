@@ -1,7 +1,14 @@
 class Api::V1::GameStatusController < ApplicationController
 
   def start
+    # byebug
     ActionCable.server.broadcast("home_channel", {type: 'GAME_HAS_BEEN_STARTED'})
+    # @game = Game.find_by(id: game_status_params[:game_id])
+    # if @game
+    #   GamesChannel.broadcast_to(@game, {message: 'hello from games channel'})
+    # else
+
+    # end
   end
 
   def submissions
@@ -28,6 +35,13 @@ class Api::V1::GameStatusController < ApplicationController
     # byebug
     # user.update_attribute(:isHost, false)
     ActionCable.server.broadcast("home_channel", {type: 'ANOTHER_GAME'})
+  end
+
+
+private
+
+  def game_status_params
+    params.permit(:game_id)
   end
 
 end

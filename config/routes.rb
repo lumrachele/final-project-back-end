@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       resources :game_captions
       mount ActionCable.server =>'/cable'
       get '/start', to: 'game_status#start'
+      # post '/start', to: 'game_status#start'
+
+
       get '/submissions', to: 'game_status#submissions'
       get '/voting', to: 'game_status#voting'
       get '/results', to: 'game_status#results'
